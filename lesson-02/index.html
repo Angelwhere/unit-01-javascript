@@ -6,8 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <script> 
+    <script>
+        let score = 10;              // 1 (10)
+        score += 5;                  // 2 (15)
+        score *= 2;                  // 3 (30)
+        let bonus = score % 7;       // 4 (2)
+        score -= bonus;              // 5 (28
+        let old = score++;           // 6 (29)
+        let next = ++score;          // 7 (30)
+        score /= 3;                  // 8 (10)
+        bonus--;                     // 9 (1)
+        score = score + bonus * 4;   // 10 (14)
         
-    </script>
+        // 1. Why is old 28 but score 29 after line 6?
+        // A: Because of postfix and prefix it changes one line but doesn't affect the other while one adds onto it.
+        // 2. Why doesn’t line 10 give 44?
+        // A: because of PEMDAS you would think it'd give 44 but because it's javascript we have to go by PEMDAS.
+        // 3. What would score be if line 3 came before line 2?
+        // A: If line 3 came before line 2 it would be 25 instead of 30.
+        </script>
+        
+    
 </body>
 </html>
