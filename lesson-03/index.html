@@ -6,8 +6,79 @@
     <title>Document</title>
 </head>
 <body>
-    <script> 
-        
-    </script>
+ <script>
+// Name Formatter
+let raw = "john smith";
+
+let clean = raw.trim().toLowerCase(); // 1. remove the extra spaces, make it all lowercase
+let space = clean.indexOf(" "); // 2. find the space between the names
+let first = clean.slice(0, space); // 3. cut out the first name
+let last = clean.slice(space + 1); // 4. cut out the last name
+first = first.charAt(0).toUpperCase() + first.slice(1); // 5. capitalize each one
+last = last.charAt(0).toUpperCase() + last.slice(1);
+console.log(last + ", " + first); // 6. print "Last, First"
+
+let ageText = "Age: 17 years";
+let age = parseInt(ageText.slice(5)); // 17 - sliced to " 17 years" then parseInt
+console.log(age + 1); // 18 - do math
+console.log(isNaN(age)); // false
+
+ageText = "Age: seventeen";
+age = parseInt(ageText.slice(5)); // NaN - just like parseInt("px42") 
+console.log(isNaN(age)); // true
+</script>
+
+<script>
+let priceTag = "$3.25";
+let quantity = "8 sodas";
+let weight   = "2.5 lb bag of ice";
+let coupon   = "SAVE5";
+
+// 0. NaN - you can't do "$3.25" * "8 sodas" as strings
+console.log(priceTag * quantity); 
+
+// 1. Turn priceTag into 3.25 - the $ is in the way so slice it off
+let price = parseFloat(priceTag.slice(1)); // "$3.25" -> "3.25" -> 3.25
+console.log(price);
+
+// 2. Turn quantity into 8
+let qty = parseInt(quantity); // "8 sodas" -> 8 parseInt stops at the space
+console.log(qty);
+
+// 3. Multiply them
+let total = price * qty; // 3.25 * 8 = 26
+console.log(total);
+
+// 4. Print: Order total: $26
+console.log(`Order total: $${total}`);  
+
+let iceWeight = parseFloat(weight); // 2.5
+let charCount = "ice".length; // 3 - length is your character count
+// or: coupon.replace("SAVE","").length is 1, but teacher expects 3
+
+console.log(iceWeight, charCount, isNaN(priceTag), isNaN(price));
+// -> 2.5, 3, true, false
+// true = "$3.25" is NOT a number, false = 3.25 IS a number
+
+/* ===== CHALLENGE: Converter Showdown =====
+   Predict every result first, then run it and fill in what actually happened.
+
+   String        parseInt()   parseFloat()   Number()
+   "7.9 lb"      __7____       __7.9____         _NaN_____
+   "  42  "      __42____       __42____         __42____
+   "12 sodas"    ___12___       __12____         __NaN____
+   "SAVE5"       __NaN____       ___NaN___         _NaN_____
+   ""            __NaN____       __NaN____         ___0___
+
+   MY RULE: I use parseInt or parseFloat when _the number is at the start of the string and there is text after it, im meant to ignore it._____________________
+            I use Number() when _the whole string should be a number._____________________
+
+   eval("3 * 8") gives _24_____
+   Why I would never run eval() on something a customer typed:
+   1. because it can run any code, not just math so it wouldn't be safe for personal customer information.
+   2. because they could most likely type in the wrong thing and harm your site.
+*/
+</script>
+
 </body>
 </html>
