@@ -7,7 +7,50 @@
 </head>
 <body>
     <script> 
-        
-    </script>
+    //core
+        const opts = { style: 'currency', currency: 'USD' };
+
+let bill = Number(prompt("Enter bill:"));
+let tipPct = parseFloat(prompt("Enter tip %:"));
+let people = Number(prompt("Enter people:"));
+
+let tip = bill * (tipPct / 100);
+let total = bill + tip;
+let each = total / people;
+
+alert(
+  `Tip: ${tip.toLocaleString('en-US', opts)}\n` +
+  `Total: ${total.toLocaleString('en-US', opts)}\n` +
+  `Each pays: ${each.toLocaleString('en-US', opts)}`
+);
+// Stretch 1: values in prompt
+let tipStr = prompt("Enter tip %:", "18");
+let peopleStr = prompt("Enter number of people:", "2");
+
+// Stretch 2: if any input isNaN, show error alert instead
+if (isNaN(bill) || isNaN(tipPct) || isNaN(people)) {
+  alert("Error: Please enter valid numbers.");
+}
+
+// Stretch 3: confirm before showing per-person
+let showSplit = confirm("Show the per-person split?");
+if (showSplit) {
+  alert(`Each pays: ${each.toLocaleString('en-US', opts)}`);
+}
+
+// Challenge 1: if any prompt returns null (Cancel), stop
+if (billStr === null || tipStr === null || peopleStr === null) {
+  alert("Calculation canceled.");
+}
+
+// Challenge 2: log 15% / 18% / 20% comparison to console logs
+console.log(`15%: ${(bill * 0.15).toLocaleString('en-US', opts)}`);
+console.log(`18%: ${(bill * 0.18).toLocaleString('en-US', opts)}`);
+console.log(`20%: ${(bill * 0.20).toLocaleString('en-US', opts)}`);
+
+// Challenge 3: use toLocaleString so 1250 -> $1,250.00
+let formatted = total.toLocaleString('en-US', opts); 
+// opts = { style: 'currency', currency: 'USD' }
+   </script>
 </body>
 </html>
