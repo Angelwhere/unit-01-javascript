@@ -7,7 +7,60 @@
 </head>
 <body>
     <script> 
-        
+        let total = 0;
+//task 1: the console gives 5050 as the total doubkle checked/ sum to 100
+for (let i = 1; i <= 100; i++) {
+  total += i;
+}
+
+console.log(`The sum is ${total}`);
+//task 2: Fizz buzz 
+for (let i = 1; i <= 100; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log("FizzBuzz"); 
+  } else if (i % 3 === 0) {
+    console.log("Fizz");
+  } else if (i % 5 === 0) {
+    console.log("Buzz");
+  } else {
+    console.log(i);
+  }
+}
+//task 3: if not a multiple of 3 and not a multiple of 5 it will skip it.
+let number = 0;
+
+for (let i = 1; i <= 100; i++) {
+
+  if (i % 3 !== 0 && i % 5 !== 0) {
+    continue;
+  }
+  total += i;
+}
+
+console.log(total); // 2418
+//task 4: stop the loop immediately after first time/ console only shows 63
+for (let i = 1; i <= 1000; i++) {
+  if (i % 7 === 0 && i % 9 === 0) {
+    console.log(i); // 63
+    break; 
+  }
+}
+//task 5 (challenge): Dice stats
+let sixCount = 0;
+
+for (let i = 0; i < 600; i++) {
+  // yesterday's formula: random integer 1-6
+  let roll = Math.floor(Math.random() * 6) + 1;
+  
+  if (roll === 6) {
+    sixCount++;
+  }
+}
+let percent = (sixCount / 600) * 100;
+
+console.log(`Sixes: ${sixCount}`);
+//Not finished
+
     </script>
 </body>
 </html>
