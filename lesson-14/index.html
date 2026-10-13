@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    // ---------- Puzzle 1: Same name, different variable ----------
+        console.log("--- Puzzle 1 ---");
+let lives = 3;
+function loseLife(lives) {
+  lives = lives - 1;
+  return lives;
+}
+let left = loseLife(lives);
+console.log(lives, left);
+//- PREDICTION: 3 2
+//- ACTUAL: 3 2
+//- WHY:- lives outside is unaffected because lives inside loseLife(lives) is a parameter 
+// - loseLife(lives) returns 2 and puts it in left, so left is 2. 
+// - Outer lives is still 3.
+
+// ---------- Puzzle 2: The unchanged score ----------
+console.log("--- Puzzle 2 ---");
+let score = 50;
+function doubleIt(num) {
+  num = num * 2;
+  console.log(num);
+}
+doubleIt(score);
+console.log(score);
+//- PREDICTION: 100 50
+//- ACTUAL: 100 50
+//- WHY:
+ //  - num is a  copy of score 
+// - Changing num inside doubleIt doesn't touch score on the outside
+//  - score is still 50
+
+// ---------- Puzzle 3: The quiet shout ----------
+console.log("--- Puzzle 3 ---");
+function shout(word) {
+  word = word.toUpperCase();
+}
+let pet = "dog";
+shout(pet);
+console.log(pet);
+
+// PREDICTION: "dog"
+// ACTUAL: "dog"
+// WHY:
+//  + word is a copy of pet
+//  + Changing word inside shout doesn't touch pet on the outside
+
+// MY FIX:
+function shoutFixed(word) {
+  return word.toUpperCase();
+}
+pet = shoutFixed(pet);
+console.log("Puzzle 3 fix:", pet); // "DOG"
+
+
+// ---------- Puzzle 4: The missing keyword ----------
+console.log("--- Puzzle 4 ---");
+function startGame() {
+  playerName = "Jordan";
+  let round = 1;
+}
+startGame();
+console.log(playerName);
+console.log(typeof round);
+//- PREDICTION: "Jordan" "undefined"
+//- ACTUAL: "Jordan" "undefined"
+//- WHY:
+   // - playerName > no let/const/var = which means "Jordan" logs.
+   // - round is let >local to startGame > undefined outside > typeof round > "undefined"
+   
+// ---------- Puzzle 5: Two functions, one global ----------
+   console.log("--- Puzzle 5 ---");
+let coins = 10;
+function spend(amount) {
+  coins = coins - amount;
+}
+function earn(amount) {
+  let coins = 100;
+  coins = coins + amount;
+}
+spend(3);
+earn(5);
+console.log(coins);
+//- PREDICTION: 7
+//- ACTUAL: 7
+//- WHY:
+   // - spend(3) > coins is global > 10 - 3 = 7 
+   // - earn(5) > let coins = 100; > local > coins = 100 + 5 = 105 (local coins, global coins untouched)
+   // - Global coins is 7
+</script>
+</body>
+</html>
+
+
+
+</script>
+</body>
+</html>
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+    </script>
+</body>
+</html>
