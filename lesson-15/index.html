@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+       let playlist = ["Morning Drive", "Rainy Day", "Static"];
+
+// Core 1
+function addToEnd(list, song) {
+  list.push(song);
+  return list.length;
+}
+
+// Core 2
+function addToFront(list, song) {
+  list.unshift(song);
+  return list.length;
+}
+
+// Core 3: Remove and return the LAST song.
+function removeLast(list) {
+  return list.pop();
+}
+
+// Core 4: Remove and return the FIRST song.
+function removeFirst(list) {
+  return list.shift();
+}
+
+// Test
+console.log(removeLast(playlist)); // "Static"
+console.log(playlist); // ["Morning Drive", "Rainy Day"]
+
+console.log(removeFirst(playlist)); // "Morning Drive"
+console.log(playlist); // ["Rainy Day"]
+
+// Core 5: Print each song as a numbered list starting at 1.
+function printPlaylist(list) {
+    for (let i = 0; i < list.length; i++) {
+        console.log(`${i + 1}. ${list[i]}`);}
+    }
+// Test calls
+addToEnd(playlist, "Night Bus");
+addToFront(playlist, "Station ID");
+console.log("Removed: " + removeLast(playlist))
+printPlaylist(playlist);
+
+// Stretch
+function replaceSong(list, position, newSong) {
+  let index = position - 1;
+  if (position < 1 || index >= list.length) {
+    console.log("No song at that position");
+    return;
+  }
+  list[index] = newSong;
+}
+
+// Test
+replaceSong(playlist, 2, "Lover's Rock");
+printPlaylist(playlist);
+// 1. Station ID
+// 2. Lover's Rock
+// 3. Rainy Day
+// 4. Static
+
+// Add via prompt
+let song = prompt("DJ, what's the next song?");
+addToEnd(playlist, song);
+printPlaylist(playlist);
+
+
+    </script>
+</body>
+</html>
