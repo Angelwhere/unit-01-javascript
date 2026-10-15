@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    // ===== Core 1: Seating Chart =====
+    let seating = [
+  ["Mia", "Leo", "Zoe", "Sam"],
+  ["Ada", "Eve", "Max", "Iva"],
+  ["Kai", "Ali", "Jay", "David"]
+];
+
+
+for (let r = 0; r < seating.length; r++) {
+  let rowNames = "";
+  for (let c = 0; c < seating[r].length; c++) {
+    rowNames += seating[r][c] + " ";
+  }
+  console.log("Row " + (r+1) + ": " + rowNames);
+}
+// Row 1: Mia Leo Zoe Sam
+// Row 2: Ada Eve Max Iva
+// Row 3: Kai Alica Jay David
+
+console.log("Row 2, seat 3:", seating[1][2]); // Max
+
+// Move student into row 0 seat 1
+seating[0][1] = "Onnjel";
+
+for (let r = 0; r < seating.length; r++) {
+  let rowNames = "";
+  for (let c = 0; c < seating[r].length; c++) {
+    rowNames += seating[r][c] + " ";
+  }
+  console.log("Row " + (r+1) + ": " + rowNames);
+}
+// Row 1: Mia Onnjel Zoe Sam
+// Row 2: Ada Eve Max Iva
+// Row 3: Kai Alica Jay David
+
+// ===== Core 2: Test-Score Stats =====
+let testScores = [72, 95, 100, 64, 81, 9, 88];
+
+// 2a. Default sort, then explain the result in a comment
+console.log("Default sort:", testScores.sort()); 
+
+
+// 2b. Sort low to high
+testScores.sort((a,b) => a-b);
+console.log("Low to high:", testScores); // [9, 64, 72, 81, 88, 95, 100]
+
+// 2c. Lowest and highest
+console.log("Lowest:", testScores[0]); // 9
+console.log("Highest:", testScores[testScores.length-1]); // 100
+
+// 2d. Sum and average
+let total = 0;
+for (let i = 0; i < testScores.length; i++) {
+  total += testScores[i];
+}
+let average = total / testScores.length;
+console.log("Average:", average.toFixed(1)); // 72.7
+
+// ===== Core 3: Student Search =====
+let roster = ["Jordan", "Priya", "Marcus", "Lena", "Priya"];
+let searchName = prompt("Enter a student's name:");
+
+// 3b and 3c. Found or not? If found, also show the LAST position
+
+
+    </script>
+</body>
+</html>
