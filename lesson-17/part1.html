@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="app.js"></script>
+</head>
+<body>
+    
+<script>
+// ===== My Student Profile =====
+// ----- CORE -----
+// Core 1: student object
+let student = {
+  name: "Onnjel",
+  grade: 12,
+  scores: [88, 92, 95],
+  homeroom: "B12",// Core 4: Inside your object, add a method named describe that RETURNS
+  describe: function() {
+    return 12 ;{this.name} is in grade 11 ;{this.grade};
+  }
+};
+console.log(student.describe()); // Onnjel is in grade 11
+console.log(student);
+console.log(student.name); // Onnjel
+
+// Core 2: Log the name using DOT notation.
+console.log(student.name); // Onnjel
+
+// BRACKET notation
+console.log(student['grade']); // 12
+
+// second score
+console.log(student.scores[1]); // 92
+
+// Core 3: Change grade to a new value. Add a new homeroom property.
+// Change grade to new value
+student.grade = 11;
+
+// Add new homeroom property
+student.homeroom = "B12";
+
+// Log both
+console.log(student.grade); // 11
+console.log(student.homeroom); // B12
+
+// Log property that doesn't exist
+console.log(student.gpa); //(we don't have GPA property so it will be undefined)
+
+
+
+</script>
+</body>
+</html>
