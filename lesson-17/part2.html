@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="app.js"></script>
+</head>
+<body>
+    <script>
+// ----- CORE -----
+// Core 1: Write a constructor function named Student with three parameters:
+function Student(name, grade, scores) {
+  this.name = name;
+  this.grade = grade;
+  this.scores = scores;
+  // Core 2: Inside your constructor, add a method named getHighest that RETURNS
+  this.getHighest = function() {
+    return Math.max(this.scores);
+  }
+}
+// Core 3: roster with 3 students
+let roster = [
+new Student("Onnjel", 11, ),
+new Student("Isaiah", 12, ),
+new Student("Khadidia", 10, )
+];
+[88][92][95][90][85][93][78]
+// Core 4: Log each student's name and highest score
+console.log(roster[0].name + ": " + roster[0].getHighest()); // Onnjel: 95
+console.log(roster[1].name + ": " + roster[1].getHighest()); // Isaiah: 93
+console.log(roster[2].name + ": " + roster[2].getHighest()); // Khadidida: 88
+// Core 5: For roster[0]: change the second score (scores[1]) to a new high score.
+// Core 5:
+roster[0].scores[1] = 99; // change second score to new high
+
+roster[0]["homeroom"] = "B12"; 
+
+console.log(roster[0]["homeroom"]); // B12
+console.log(roster[0].getHighest()); // 99
+
+// ----- STRETCH -----
+
+
+
+
+
+
+
+    </script>
+    </body>
+    </html>
