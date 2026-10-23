@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        // STEP 1: Student constructor with validation
+        function Student(name, scores){
+            for (let score of scores) {
+    if (typeof score !== 'number' || score < 0 || score > 100) {
+      throw new Error("Invalid score for " + name + ": " + score);
+    }
+  }
+  this.name = name;
+  this.scores = scores;
+  this.getAverage = function() {
+    let sum = 0;
+    for (let score of this.scores) {
+      sum += score;
+    }
+    return sum / this.scores.length;
+  }
+        }
+// STEP 2: Load the class
+let roster = [ ];
+try {
+  roster.push(new Student("Ava", [92, 88, 95]));
+} catch (err) {
+  console.log(err.message);
+}
+
+try {
+  roster.push(new Student("Ben", [75, 82, 80]));
+} catch (err) {
+  console.log(err.message);
+}
+
+try {
+  roster.push(new Student("Finn", [88, "ninety", 91]));
+} catch (err) {
+  console.log(err.message);
+}
+
+try {
+  roster.push(new Student("Chloe", [68, 71, 59]));
+} catch (err) {
+  console.log(err.message);
+}
+
+try {
+  roster.push(new Student("Diego", [85, 90, 78]));
+} catch (err) {
+  console.log(err.message);
+}
+
+try {
+  roster.push(new Student("Gia", [94, -5, 87]));
+} catch (err) {
+  console.log(err.message);
+}
+
+try {
+  roster.push(new Student("Emma", [55, 62, 48]));
+} catch (err) {
+  console.log(err.message);
+}
+// STEP 3: Letter grades
+this.getLetter = function(){
+let average = this.getAverage();
+if (average >= 90) return "A";
+else if (average >= 80) return "B";
+else if (average >= 70)return "C";
+else if (average >= 60) return "D";
+else return "F";
+}
+// STEP 4: Highest and lowest
+function findHighest(list){
+    let highest = list[0]
+    for (let student of list) {
+    if (student.getAverage() > highest.getAverage()) {
+      highest = student;
+    }
+  }
+  return highest;
+}
+
+function findLowest(list) {
+  let lowest = list[0];
+  for (let student of list) {
+    if (student.getAverage() < lowest.getAverage()) {
+      lowest = student;
+    }
+  }
+  return lowest;
+}
+// STEP 5: Sort
+function sortByAverage(list) {
+  list.sort((a, b) => b.getAverage() - a.getAverage());
+}
+
+
+
+
+
+    </script>
+</body>
+</html>
