@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Art Club</title>
+</head>
+<body>
+  <h1 id="pageTitle">Art Club 2024</h1>
+  <h2>Old News</h2>
+  <h2>Old Events</h2>
+  <p id="intro">Welcome!</p>
+  <ul id="supplies"></ul>
+  <p class="date">TBD</p>
+  <p class="date">TBD</p>
+  <p class="date">TBD</p>
+  <p id="footer"></p>
+
+  <script>
+    // Write your code here, one comment above each task
+// Core 1: getElementById + textContent
+document.getElementById("pageTitle").textContent = "Art Club 2026";
+
+//Core 2: getElementsByTagName
+  let h2s = document.getElementsByTagName("h2");
+  h2s[0].textContent = "Club News";
+  h2s[1].textContent = "Upcoming Events";
+
+  // Core 3: getElementsByClassName + for loop
+  let dates = document.getElementsByClassName("date");
+  for (let i = 0; i < dates.length; i++) {
+    dates[i].textContent = "Wednesdays at 3:30";
+  }
+  // Core 4: innerHTML
+document.getElementById("intro").innerHTML = "<b>Welcome</b> to Art Club!";
+// If I use textContent with the same string the <b> tags show up as text and don't make it bold.
+// innerHTML renders HTML textContent treats everything as plain text.
+
+// Core 5: array + for loop + innerHTML
+let supplies = ["Sketchbook", "Pencils", "Watercolors"];
+for (let i = 0; i < supplies.length; i++) {
+  document.getElementById("supplies").innerHTML += "<li>" + supplies[i] + "</li>";
+}
+
+// Core 6: length of collection
+let liCount = document.getElementsByTagName("li").length;
+document.getElementById("footer").textContent = "Supplies listed: " + liCount;
+
+//Core 7:
+
+  </script>
+</body>
+</html>
