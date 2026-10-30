@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Period 3 Gradebook</h1>
+<ul id="gradebook"></ul>
+<h2>Honor Roll</h2>
+<ul id="honor"></ul>
+    <script> 
+//core 1: getElementById
+        let students = [
+  { name: "Maya", average: 94.5 },
+  { name: "Leo", average: 81.4 },
+  { name: "Priya", average: 67.8 },
+  { name: "Sam", average: 88 },
+  { name: "Jordan", average: 72.3 }
+];
+
+// Challenge 6: sort
+students.sort(function(a, b) {
+  return b.average - a.average;
+});
+
+let list = document.getElementById("gradebook");
+let honorList = document.getElementById("honor");
+let total = 0;
+
+//Challenge 8
+let allH2 = document.createElement("h2");
+allH2.textContent = "All Students";
+document.body.insertBefore(allH2, list);
+
+// Core 2: for loop, createElement, appendChild, toFixed
+for (let i = 0; i < students.length; i++) {
+  let student = students[i];
+  total = total + student.average;
+
+   // Stretch 4: if...else if chain
+   let letter = "";
+  if (student.average >= 90) {
+    letter = "A";
+  } else if (student.average >= 80) {
+    letter = "B";
+  } else if (student.average >= 70) {
+    letter = "C";
+  } else if (student.average >= 60) {
+    letter = "D";
+  } else {
+    letter = "F";
+  }
+
+  // Stretch 5: if, createElement, appendChild, getElementById
+  if (student.average >= 90) {
+    let honorLi = document.createElement("li");
+    honorLi.textContent = student.name;
+    honorList.appendChild(honorLi);
+  }
+}
+  let li = document.createElement("li");
+  li.textContent = student.name + ": " + student.average.toFixed(1) + " (" + letter + ")";
+  list.appendChild(li);
+
+   // Core 3: createElement, appendChild, textContent
+let p = document.createElement("p");
+p.textContent = "Report for " + students.length + " students";
+document.body.appendChild(p);
+
+  // Challenge 7: createElement, appendChild, toFixed
+let avgLi = document.createElement("li");
+avgLi.textContent = "Class average: " + (total / students.length).toFixed(1);
+list.appendChild(avgLi);
+
+    </script>
+</body>
+</html>
