@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Exam Watch Flashcards</title>
   <link rel="stylesheet" href="style.css">
-  <script src ="app.js"></script> <!-- app.js contains: let msg = "external"; -->
 </head>
 <!-- Obj 4.2 / 4.5: onload is an HTML attribute event. It runs startApp() after the page loads. -->
 <body onload="startApp()">
@@ -101,29 +100,6 @@
   </main>
 
   <!-- CHECKPOINT 1, Step 1: add the <script> tag for app.js on the next line -->
-    <script>
- //field guide 1C
-        src="app.js" 
-        "use strict";
-        msg = "internal";
-        console.log(msg);
-//field guide 1C,3E
-      const EXAM_DATE = new Date(2026, 10, 25); // November 25, 2026
-
-// Field Guide 1B
-function checkScreen() {
-  let screenMsg = document.getElementById("screenMsg");
-  if (window.innerWidth < 600) {
-    screenMsg.textContent = "Small screen: turn your device sideways for a bigger card.";
-  } else {
-    screenMsg.textContent = "Window width: " + window.innerWidth + "px";
-  }
-}
-
-// Field Guide 4D
-function startApp() {
-  checkScreen();
-}
-    </script>
+    <script src="app.js"></script> <!-- app.js contains: let msg = "external"; -->
 </body>
 </html>
